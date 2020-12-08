@@ -1,0 +1,79 @@
+﻿@model HouseBlog.Models.Post
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section>
+    <div class="half d-md-flex d-block">
+        <img style='width:500px; height:400px;border-radius:100px; margin-top: 85px;' src="@Html.DisplayFor(model => model.ImageUrl)" />
+        <div class="text">
+            <h2>
+                @Html.DisplayFor(model => model.Title)
+            </h2>
+
+            <dl>
+                @Html.DisplayFor(model => model.Text)
+            </dl>
+            <dd class="col-sm-10">
+                Дата статьи: @Html.DisplayFor(model => model.CreatedAt)
+            </dd>
+            @if (User.IsInRole("admin") || ViewData["UserName"] as string == User.Identity.Name)
+            {
+                <a style="color: #1861ac" asp-action="Edit" asp-route-id="@Model.PostId">Edit</a>
+                <a style="color: #1861ac" asp-action="Index">Back to List</a>
+            }
+
+        </div>
+    </div>
+    <div>
+
+
+        <div style="background-color:white;border-radius:5px;margin-top:20px; margin-left: 80px">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <dd>
+
+                    <div class="form-group">
+                        <input type="hidden" asp-for="@Model.PostId" class="form-control" id="PostInput" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"> Комментарии</label>
+                        <input asp-for="Text" type="text" class="form-control" style="height:auto;" value=" " id="TextInput" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" id="sendButton" />
+                    </div>
+
+                </dd>
+            }
+            <ul style="min-height:300px;height:auto;background-color:white; border-radius:5px;" id="messagesList">
+                @foreach (var item in ViewData["Comment"] as IList<HouseBlog.Models.Comment>)
+                {
+
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>
+                            <a href="">Логин:@item.User.UserName</a>
+                            <p>Комментарий:@item.Text</p>
+                            <p class="text-muted utc-date">Дата:@item.DateTime.ToString("MM/dd/yyyy HH:mm:ss")</p>
+                            <br />
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <p>Логин:@item.User.UserName</p>
+                            <p>Коментарий:@item.Text</p>
+                            <p class="text-muted utc-date">Дата:@item.DateTime.ToString("MM/dd/yyyy HH:mm:ss")</p>
+                            <br />
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <script src="~/js/signalr/dist/browser/signalr.js"></script>
+        <script src="~/js/chat.js"></script>
+    </div>
+
+</section>

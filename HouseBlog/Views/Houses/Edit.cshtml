@@ -1,0 +1,47 @@
+﻿@model HouseBlog.Models.House
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Club</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HouseId" />
+            <div class="form-group">
+                <label asp-for="HouseName" class="control-label"></label>
+                <input asp-for="HouseName" class="form-control" />
+                <span asp-validation-for="HouseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseDescription" class="control-label"></label>
+                <input asp-for="HouseDescription" class="form-control" />
+                <span asp-validation-for="HouseDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseImage" class="control-label"></label>
+                <img style='width:295px; height:100px;' src="@Html.DisplayFor(model => model.HouseImage)" />
+                <div class="editor-field">
+                    <input type="file" name="uploadedFile" />
+                </div>
+                <span asp-validation-for="HouseImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HouseBlog.Models.House>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<section class="section border-t">
+    <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+            <div class="col-md-8 text-center">
+                <h2 class=" heading mb-4">Частные дома</h2>
+                <p class="mb-5 lead">
+                    Чистый воздух, живая природа;
+                    Собственный земельный участок;
+                    Большая жилая площадь;
+                    Отсутствие назойливых соседей;
+                    Нет проблем с парковкой;
+                    Возможность завести несколько домашних животных;
+                    Определенный статус в обществе.
+                </p>
+            </div>
+        </div>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <div style="margin-bottom: 400px" class="row no-gutters">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-4 element-animate">
+                    <a asp-action="Details" asp-route-id="@item.HouseId" class="link-thumbnail">
+                        <h3>@Html.DisplayFor(modelItem => item.HouseName)</h3>
+                        <span class="ion-plus icon"></span>
+                        <img src="@Html.DisplayFor(modelItem => item.HouseImage)" alt="Image placeholder" class="img-fluid">
+                    </a>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+

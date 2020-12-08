@@ -1,0 +1,28 @@
+﻿@model HouseBlog.Models.House
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<section>
+    <div class="half d-md-flex d-block">
+        <img style='width:500px; height:400px;border-radius:100px; margin-top: 85px;' src="@Html.DisplayFor(model => model.HouseImage)" />
+        <div class="text">
+            <h2>
+                @Html.DisplayFor(model => model.HouseName)
+            </h2>
+
+            <dl>
+                @Html.DisplayFor(model => model.HouseDescription)
+            </dl>
+            @if (User.IsInRole("admin") || ViewData["UserName"] as string == User.Identity.Name)
+            {
+                <a asp-controller="Clubs" asp-action="Edit" asp-route-id="@Model.HouseId">Edit</a>
+                <a asp-action="Index">Back to List</a>
+            }
+        </div>
+    </div>
+
+</section>

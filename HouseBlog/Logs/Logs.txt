@@ -1,0 +1,51 @@
+﻿2020-12-07 18:28:59.023 +03:00 [INF] Entity Framework Core 5.0.0 initialized 'BlogContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-12-07 18:29:00.462 +03:00 [INF] Executed DbCommand (340ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2020-12-07 18:29:00.726 +03:00 [INF] Executed DbCommand (214ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2020-12-07 18:29:01.298 +03:00 [INF] Executed DbCommand (360ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3);
+2020-12-07 18:29:01.359 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2020-12-07 18:29:01.365 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2020-12-07 18:29:01.378 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3);
+2020-12-07 18:29:01.423 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TopicId], [a].[TopicName], [a].[TwoFactorEnabled], [a].[UserName], [a].[isBlocked]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2020-12-07 18:29:01.936 +03:00 [INF] Request starting HTTP/2.0 GET https://localhost:44358/  
+2020-12-07 18:29:02.078 +03:00 [INF] Entity Framework Core 5.0.0 initialized 'BlogContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-12-07 18:29:02.112 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TopicId], [a].[TopicName], [a].[TwoFactorEnabled], [a].[UserName], [a].[isBlocked]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2020-12-07 18:29:02.263 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2020-12-07 18:29:02.322 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2020-12-07 18:29:02.337 +03:00 [INF] Executing endpoint 'HouseBlog.Controllers.HomeController.Index (HouseBlog)'
+2020-12-07 18:29:02.378 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller HouseBlog.Controllers.HomeController (HouseBlog).
+2020-12-07 18:29:02.393 +03:00 [INF] Executing ViewResult, running view Index.
+2020-12-07 18:29:02.561 +03:00 [INF] Executed ViewResult - view Index executed in 169.4647ms.
+2020-12-07 18:29:02.564 +03:00 [INF] Executed action HouseBlog.Controllers.HomeController.Index (HouseBlog) in 184.4702ms
+2020-12-07 18:29:02.566 +03:00 [INF] Executed endpoint 'HouseBlog.Controllers.HomeController.Index (HouseBlog)'
+2020-12-07 18:29:02.580 +03:00 [INF] Request finished in 646.7739ms 200 text/html; charset=utf-8

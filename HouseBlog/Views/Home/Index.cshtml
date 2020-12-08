@@ -1,0 +1,132 @@
+﻿@model IEnumerable<HouseBlog.Models.House>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="start">
+    <div class="container">
+        <div class="start_inner">
+            <h2 class="start_suptitle element-animate">Make a dream comes true</h2>
+            <h1 class="start_title element-animate">Welcome to HouseBlog</h1>
+            <a style="text-decoration: none" class="blog" asp-controller="Posts" asp-action="Index">Блог</a>
+        </div>
+    </div>
+</div>
+
+<div class="intro element-animate">
+    <div class="container">
+        <div class="intro_inner">
+            <h2 class="intro_title">Blog about houses designs</h2>
+            <p class="intro_text">
+                Дом, где ты живешь - это именно то место, где ты можешь укрыться от всех невзгод и расслабиться по
+                настоящему. Именно поэтому очень важно выбрать правильный дизайн для себя. HouseBlog облегчит вам эту
+                задачу.
+            </p>
+        </div>
+    </div>
+</div>
+
+<section style="margin-bottom: 50px" class="section element-animate">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <!--<div class="col-md-4"></div>-->
+            <h2 class="house_type">Выбираем тип частного дома</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <img src="img/house4.jpg" alt="Image placeholder" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <p>
+                    - Элитный сегмент. Это, как правило, двух- или трехэтажные коттеджи, построенные из дерева или кирпича. Они часто выдержаны в одном из типичных европейских стилей (классика, романтика, сельский), имеют обширный участок земли для сада и/или дизайнерских ухищрений. Если этого нет, высокую цену можно считать необоснованной. Покупать дорогой дом лучше всего вдали от города и дачных кооперативов.
+                </p>
+                <p>
+                    - Средний ценовой диапазон. В этом сегменте преобладают деревянные и кирпичные дюплексы.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p>Нередко это довольно необычные дома, так как их хозяева, несмотря на отсутствие огромных капиталов, хотят подчеркнуть индивидуальность своего загородного жилья.</p>
+                <p>
+                    - Бюджетные дома. К эконом-классу можно отнести каркасно-панельные дома, а также небольшие коттеджи из ячеисто-бетонных блоков. Они недорогие по себестоимости и быстро строятся. И то, и то удешевляет покупку. Недорогой дом не значит некрасивый. Это, возможно, и было правдой лет 20 назад, но не сейчас.
+                </p>
+                <p><a href="#">Узнать больше <span class="ion-ios-arrow-right"></span></a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="section border-t">
+    <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+            <div class="col-md-8 text-center">
+                <h2 style="margin: -40px auto -100px" class=" heading mb-4">Интересные дизайны домов</h2>
+                <p class="mb-6 lead">Расскажите о доме и посмотрите дома других, а если вы еще не живете в доме своей мечты, можете подсмотреть что-нибудь из дизайна на будущее!</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: -50px" class="row no-gutters">
+            @if (Model != null)
+          {
+
+            @foreach (var item in Model)
+            {
+
+            <div class="col-md-4 element-animate">
+                <a asp-controller="Houses" asp-action="Details" asp-route-id="@item.HouseId" class="link-thumbnail">
+                    <h3>@Html.DisplayFor(modelItem => item.HouseName)</h3>
+                    <span class="ion-plus icon"></span>
+                    <img src="@Html.DisplayFor(modelItem => item.HouseImage)" alt="Image placeholder" class="img-fluid">
+                </a>
+            </div>
+            }
+         }
+        </div>
+
+    </div>
+</section>
+<!-- END section -->
+
+<section style="margin-bottom: 50px" class="section element-animate bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <!--<div class="col-md-4"></div>-->
+            <h2 style="margin-top: 60px" class="house_type">Лучшие дизайнеры</h2>
+        </div>
+
+
+        <div style="margin-top: -50px" class="row">
+
+            <div class="col-md-4 mb-4">
+                <img class="designer" src="img/designer1.jpg" alt="Image placeholder" class="img-fluid">
+                <div style="background-color: #fff" class="media-body">
+                    <h3 style="text-align: center" class="mt-0 text-black">Максим</h3>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <img class="designer" src="img/designer2.jpg" alt="Image placeholder" class="img-fluid">
+                <div style="background-color: #fff" class="media-body">
+                    <h3 style="text-align: center" class="mt-0 text-black">Василий</h3>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <img class="designer" src="img/designer4.jpg" alt="Image placeholder" class="img-fluid">
+                <div style="background-color: #fff" class="media-body">
+                    <h3 style="text-align: center" class="mt-0 text-black">Ксения</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+

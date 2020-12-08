@@ -1,0 +1,49 @@
+﻿@using HouseBlog.ViewModels
+@model PostIndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="section">
+    <div class="container">
+
+        <div style="text-align: center" class="element-animate">
+            <div>
+                <h2 class="house_type mb-4">Последние посты блога</h2>
+                <div style="margin-bottom: 40px">Переезд в частный дом - это очень ответсвенный и сложный шаг. Постоянно появляются все новые вопросы: как лучше обустроить участок, как сделать оптимальное отопление и многие другие. Со всеми вопросами поможет разобраться наш блог!</div>
+            </div>
+        </div>
+        <form class="form-inline">
+            <label>Выберите тему:</label>
+            <select name="TopicId" class="form-control form-control-lg">
+                <option value=null>-------------------</option>
+                @foreach (var topic in Model.Topics)
+                {
+                    <option value="@topic.TopicId">@topic.TopicName</option>
+                }
+            </select>
+            <input type="submit" class="btn btn-sm btn" value="OK" />
+        </form>
+        <p>
+            <a style="color: #1861ac" asp-action="Create">Create New</a>
+        </p>
+        <div class="row">
+            @foreach (var item in Model.Posts)
+            {
+
+                <div class="col-md-6">
+
+                    <div class="media mb-4 d-md-flex d-block element-animate">
+                        <a asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId" class="mr-5"><img src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="Placeholder image" class="img-fluid"></a>
+                        <div class="media-body">
+                            <span class="post-meta">@Html.DisplayFor(modelItem => item.CreatedAt)</span>
+                            <h3 class="mt-2 text-black"><a style="color: #1861ac" asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId">@Html.DisplayFor(modelItem => item.Title)</a></h3>
+                            <p>@Html.DisplayFor(modelItem => item.Text)</p>
+                            <p><a style="color: #FFF" asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId" class="btn btn-primary btn-sm">Read more</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
